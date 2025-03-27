@@ -1,0 +1,67 @@
+**Todo Uygulaması - Proje Akışı**
+
+---
+
+### **1. Proje Planlama ve Kurulum**  
+- Proje gereksinimlerinin belirlenmesi  
+- Proje klasör yapısının oluşturulması  
+- Git repository'sinin oluşturulması ve ilk commit  
+- .gitignore dosyasının oluşturulması  
+
+---
+
+### **2. Backend Geliştirme (ASP.NET Core MVC Kullanılacak)**  
+#### **2.1. Model Tasarımı**  
+- `TodoItem` sınıfının oluşturulması  
+- Gerekirse ekstra özellikler eklenmesi (kategori, öncelik vb.)  
+
+#### **2.2. Veritabanı Entegrasyonu**  
+- Entity Framework Core (EF Core) kullanarak veritabanı bağlantısının yapılması  
+- `SQLite` veya `SQL Server` kullanımı  
+- `DbContext` sınıfının oluşturulması  
+- İlk migration ve veritabanının oluşturulması  
+
+
+#### **2.3. Controller ve View'ların Oluşturulması**  
+- `TodoController` sınıfının oluşturulması  
+- CRUD işlemleri için View’ların hazırlanması  
+
+
+#### **2.4. CRUD İşlemleri**  
+- Yeni görev ekleme  
+- Mevcut görevi güncelleme  
+- Görevi silme  
+- Tüm görevleri listeleme  
+
+---
+
+### **3. Frontend Geliştirme (HTML, CSS ve JavaScript Kullanılacak)**  
+#### **3.1. Basit UI Tasarımı**  
+- Ana sayfa ve görev listeleme ekranı oluşturulması  
+- Bootstrap veya Tailwind CSS ile stillendirme  
+
+#### **3.2. Görev Yönetimi Arayüzü**  
+- Yeni görev ekleme formu  
+- Düzenleme ve silme butonları  
+- Filtreleme ve sıralama özelliklerinin eklenmesi  
+
+---
+
+### **4. Ekstra Özellikler ve İyileştirmeler**  
+- Kullanıcı giriş/çıkış işlemleri (Opsiyonel)  
+- Yetkilendirme ve erişim kontrolü  
+- Görevler için bildirim mekanizması  
+- Responsive tasarım ve mobil uyumluluk  
+
+---
+
+### **5. Test ve Yayınlama**  
+- Local testlerin yapılması  
+- Debugging ve hata düzeltmeleri  
+- Veritabanı güvenliği ve yedekleme  
+- Projenin sunucuya yüklenmesi (Azure, AWS veya kendi sunucumuz)  
+
+---
+
+**Not:** Proje geliştirme sürecinde her önemli değişiklik için commit atılacaktır. Proje tamamlandığında dökümantasyon hazırlanacaktır.
+
