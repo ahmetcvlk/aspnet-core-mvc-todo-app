@@ -5,10 +5,10 @@
         <div class="col-md-7">
 
             <div class="text-center my-4">
-                <h6 class="fs-2">Create Task</h6>
+                <h6 class="fs-2">Edit Task or Review</h6>
             </div>
 
-            <form asp-action="Create" method="post">
+            <form asp-action="Edit" method="post">
                 <div class="form-group mt-3">
                     <label class="mb-2 fs-5" asp-for="Title"></label>
                     <textarea asp-for="Title" class="form-control" rows="3" style="resize: none;"></textarea>
@@ -19,7 +19,7 @@
                     <textarea asp-for="Description" class="form-control" rows="8" style="resize: none;"></textarea>
                     <span asp-validation-for="Description" class="text-danger"></span>
                 </div>
-                <button type="submit" class="btn btn-primary mt-4">Create</button>
+                <button type="submit" class="btn btn-primary mt-4">Edit</button>
                 <a asp-controller="Home" asp-action="Index" class="btn btn-secondary mt-4 ms-2">Back</a>
             </form>
         </div>

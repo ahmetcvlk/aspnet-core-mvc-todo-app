@@ -9,6 +9,12 @@ a.navbar-brand {
 
 a {
   color: #0077cc;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #0056b3;
+  text-decoration: none;
 }
 
 .btn-primary {
@@ -46,3 +52,10 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+.footer {
+  color: #0077cc;
+  text-decoration: none;
+}
+
+

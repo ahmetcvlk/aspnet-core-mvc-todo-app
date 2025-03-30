@@ -17,9 +17,17 @@ public class HomeController : Controller
         _context = context;
     }
 
-    public IActionResult Index()
+    public IActionResult Index(string filter = "all")
     {
-        var model = _context.TodoItems.ToList();
+        ViewBag.CurrentFilter = filter;
+        var query = _context.TodoItems.AsQueryable();
+        query = filter switch{
+            "completed" => query.Where(x => x.IsDone),
+            "active" => query.Where(x => !x.IsDone),
+            _ => query.OrderBy(x => x.IsDone).ThenByDescending(x => x.CreatedAt)
+        };
+
+        var model = query.ToList();
         return View(model);
     }
 
@@ -38,6 +46,50 @@ public class HomeController : Controller
             return RedirectToAction("Index");
         }
         return View(model);
+    }
+
+    public IActionResult Delete(int id)
+    {
+        var item = _context.TodoItems.Find(id);
+        if (item != null)
+        {
+            _context.TodoItems.Remove(item);
+            _context.SaveChanges();
+        }
+        return RedirectToAction("Index");
+    }
+
+    public IActionResult Edit(int id)
+    {
+        var item = _context.TodoItems.Find(id);
+        if (item == null)
+        {
+            return NotFound();
+        }
+        return View(item);
+    }
+
+    [HttpPost]
+    public IActionResult Edit(TodoItem model)
+    {
+        if (ModelState.IsValid)
+        {
+            _context.TodoItems.Update(model);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        return View(model);
+    }
+
+    public IActionResult Complete(int id)
+    {
+        var item = _context.TodoItems.Find(id);
+        if (item != null)
+        {
+            item.IsDone = true;
+            _context.SaveChanges();
+        }
+        return RedirectToAction("Index");
     }
 
     public IActionResult Privacy()

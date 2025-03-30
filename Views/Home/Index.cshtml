@@ -4,9 +4,25 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="my-3">
+
+<div class="d-flex justify-content-between align-items-center my-3 mb-4">
+    <div class="" role="group">
+        <a asp-action="Index" asp-route-filter="all" 
+           class="btn @(ViewBag.CurrentFilter == "all" ? "btn-primary" : "btn-outline-primary")">
+            All Tasks
+        </a>
+        <a asp-action="Index" asp-route-filter="active"
+           class="btn @(ViewBag.CurrentFilter == "active" ? "btn-primary" : "btn-outline-primary")">
+            Active
+        </a>
+        <a asp-action="Index" asp-route-filter="completed"
+           class="btn @(ViewBag.CurrentFilter == "completed" ? "btn-primary" : "btn-outline-primary")">
+            Completed
+        </a>
+    </div>
     <a asp-action="Create" class="btn btn-primary">
-        Create New</a>
+        <i class="fa fa-plus me-2"></i>New Task
+    </a>
 </div>
 
 <div class="row">
