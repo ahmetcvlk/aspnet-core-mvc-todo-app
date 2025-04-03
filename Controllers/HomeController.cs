@@ -81,12 +81,22 @@ public class HomeController : Controller
         return View(model);
     }
 
-    public IActionResult Complete(int id)
+    public IActionResult IsComplete(int id)
     {
         var item = _context.TodoItems.Find(id);
         if (item != null)
         {
-            item.IsDone = true;
+            if (item.IsDone)
+            {
+                item.IsDone = false;
+            }
+            else
+            {
+                item.IsDone = true;
+            }
+            // _context.TodoItems.Update(item);
+
+            // item.IsDone = true;
             _context.SaveChanges();
         }
         return RedirectToAction("Index");
